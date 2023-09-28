@@ -1,0 +1,25 @@
+.nutrition-card {
+  background-color: #F7F7F7;
+  padding: 32px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  border-radius: 5px;
+}
+
+.nutrition-card__icon {
+  width: 60px;
+  height: 60px;
+}
+
+.nutrition-card__value {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #282D30;
+}
+
+.nutrition-card__label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #74798C;
+}
