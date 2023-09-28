@@ -1,0 +1,63 @@
+/*------------------------------------*\
+  #TOP-LEVEL-DECLARATIONS
+\*------------------------------------*/
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,400;8..144,500;8..144,700&display=swap');
+
+
+
+
+
+/*------------------------------------*\
+  #CSS-RESET
+\*------------------------------------*/
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+  text-size-adjust: none;
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+input, button, textarea, select {
+  font: inherit;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+h1, h2, h3, h4 {
+  text-wrap: balance;
+}
+
+
+
+
+
+/*------------------------------------*\
+  #GENERAL-TYPOGRAPHY
+\*------------------------------------*/
+
+html {
+  font-size: 16px;
+}
+
+body * {
+  font-family: "Roboto Flex", sans-serif;
+}
