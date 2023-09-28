@@ -4,7 +4,7 @@ import iconCarbs from "../assets/images/icon_carbs.svg";
 import iconFats from "../assets/images/icon_fats.svg";
 import "./NutritionCard.css";
 
-export default function NutritionCard({type, value}) {
+export default function NutritionCard({type, value, className}) {
   const types = [
     {
       "type": "calories",
@@ -36,7 +36,7 @@ export default function NutritionCard({type, value}) {
   console.log(thisType.icon)
 
   return (
-    <div className="nutrition-card">
+    <div className={`nutrition-card ${className}`}>
       <div className="nutrition-card__flex-child">
         <img className="nutrition-card__icon" src={thisType.icon} alt="" />
       </div>
