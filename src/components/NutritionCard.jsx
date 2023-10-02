@@ -33,7 +33,6 @@ export default function NutritionCard({type, value, className}) {
   ];
   
   const thisType = types.find(item => item.type === type);
-  console.log(thisType.icon)
 
   return (
     <div className={`nutrition-card ${className}`}>
