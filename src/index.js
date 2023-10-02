@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import Dashboard from './Dashboard';
+import Dashboard from './components/Dashboard';
 import fetchData from "./fetch.js";
 import "./index.css";
 

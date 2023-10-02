@@ -1,4 +1,4 @@
-import NutritionCard from "./components/NutritionCard";
+import NutritionCard from "./NutritionCard";
 import "./Dashboard.css";
 
 function Dashboard() {
