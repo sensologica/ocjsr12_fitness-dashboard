@@ -6,10 +6,33 @@
 - Installed project dependencies with `npm install`. The installation instructions asked to install with `yarn` but I wanted to try `npm`. Seems to be working.
 - The backend of the app is an Express.js server that was written by the course creators and provided in a GitHub repository that I cloned. This server is running in the Node.js environment that is locally installed on my computer.
 
-### Setting up the frontend
-- Created a React app with Create React App: `$ npx create-react-app sportsee`
-- Moved the files from the newly created `sportsee` folder into the root directory of the project, accepted VS Code’s offer to update node module imports (I am not sure where these imports take place, so I let VS Code deal with it).
-- Install React Router: `$ npm install react-router-dom`. Although, this project only requires us to build one page — the dashboard. So I am not sure we will be needing React Router.
+### How to set up the frontend
+
+#### Create a React app with Create React App
+
+```bash
+$ npx create-react-app sportsee
+```
+
+When I did this, after the install I moved the files from the newly created `sportsee` folder into the root directory of the project (for easier project navigation in Visual Studio Code's sidebar), and accepted Visual Studio Code’s offer to update node module imports (I am not sure where these imports take place, so I let VS Code deal with it).
+
+#### Install React Router
+
+[React Router](https://reactrouter.com/)
+
+```bash
+$ npm install react-router-dom
+```
+
+This project only requires us to build one page — the dashboard, so I am not sure we will be needing React Router.
+
+#### Install Recharts
+
+[Recharts](https://recharts.org/) is a library or React components for visualizing data with various types of graphs. We will be using it for building dashboard widgets.
+
+```bash
+$ npm install recharts
+```
 
 ## Fetching data from the API
 
