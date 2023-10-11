@@ -1,6 +1,7 @@
 # ocjsr_p12
 
 ## Project Setup
+
 ### Setting up the backend API
 - Installed Node v12.18.4 using `nvm` version 0.39.4
 - Installed project dependencies with `npm install`. The installation instructions asked to install with `yarn` but I wanted to try `npm`. Seems to be working.
@@ -32,6 +33,26 @@ This project only requires us to build one page — the dashboard, so I am not s
 
 ```bash
 $ npm install recharts
+```
+
+##### Note about the current state of Recharts
+
+The library lost its original maintainers and is [not in a good state](https://www.reddit.com/r/reactjs/comments/1656wi9/recharts_call_for_contributors/). There are two versions of docs (one on the website and another on Storybook) which are contradictory, incomplete, outdated, or simply wrong. The new team is making good efforts to address these issues but, based on discussions in GitHub Issues, the problems run deep and are not an easy fix. The maintainer was very responsive to my questions, so I am sure Recharts will reach stability and maturity under his leadership. However, the current issues make it very difficult to work with the library. It is unpredictable and requires a lot of poking around in the dark.
+
+The only other alternative that I have is to use D3 (Observable Plot would be easier but it's not allowed by the brief). D3 is a much larger project so it is likely that its documentation and API will be in a much better state. However, D3 is extremely complex and will require _a lot_ of work to be able to build anything. Is it better to work with something solid but very complex, or something frail but a bit less difficult to wrap one's mind around? The frailty, unfortunately, also creates complexity. And not a good kind of complexity, because nothing can be relied on. Maybe complexity is easier to navigate if there is a good map (docs)? Would it be worth it to jump into D3 instead of Recharts?
+
+#### Install D3
+
+D3's docs don't shy away from telling you that the D3 toolset is _complex_. Even small things can take hundreds of lines of code to implement. In return for your time investment you get complete control.
+
+I am facing a tradeoff: use buggy Recharts with poor documentation and suffer the pain associated with that, or use the mature and well-documented D3 but suffer the pain of its complexity. I think going with D3 makes sense because it's easier to embrace complexity that is functional versus complexity that is unstable and unpredictable. Also, knowing D3 is a good skill to have. It is marketable, transferable, and fundamental (Recharts is an abstraction over D3, for example). Another thing D3 has going for it is a vibrant community and huge numbers of examples of all types of charts on Observable.
+
+I will give D3 a shot. I will try to build the Today's Score widget with it to see how it goes and if I can figure it out.
+
+[Interesting discussion about D3](https://news.ycombinator.com/item?id=17298072)
+
+```bash
+$ npm install d3
 ```
 
 ## Fetching data from the API
