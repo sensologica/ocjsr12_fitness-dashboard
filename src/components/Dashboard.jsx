@@ -91,22 +91,22 @@ export default function Dashboard() {
         }
       />
       <WidgetNutritionCard
-        className="nutrition-card__calories"
+        className="widget-nutrition-card__calories"
         type="calories"
         value={data.profile && data.profile.data.keyData.calorieCount} 
       />
       <WidgetNutritionCard
-        className="nutrition-card__proteins"
+        className="widget-nutrition-card__proteins"
         type="proteins"
         value={data.profile && data.profile.data.keyData.proteinCount}
       />
       <WidgetNutritionCard
-        className="nutrition-card__carbs"
+        className="widget-nutrition-card__carbs"
         type="carbs"
         value={data.profile && data.profile.data.keyData.carbohydrateCount}
       />
       <WidgetNutritionCard
-        className="nutrition-card__fats"
+        className="widget-nutrition-card__fats"
         type="fats"
         value={data.profile && data.profile.data.keyData.lipidCount}
       />
