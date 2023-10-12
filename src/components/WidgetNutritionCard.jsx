@@ -2,9 +2,9 @@ import iconCalories from "../assets/images/icon_calories.svg"
 import iconProteins from "../assets/images/icon_proteins.svg"
 import iconCarbs from "../assets/images/icon_carbs.svg"
 import iconFats from "../assets/images/icon_fats.svg"
-import "./NutritionCard.css"
+import "./WidgetNutritionCard.css"
 
-export default function NutritionCard({type, value, className}) {
+export default function WidgetNutritionCard({type, value, className}) {
   const types = [
     {
       "type": "calories",

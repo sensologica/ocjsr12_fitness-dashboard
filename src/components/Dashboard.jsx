@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import DashboardLoading from "./DashboardLoading"
 import DashboardError from "./DashboardError"
-import NutritionCard from "./NutritionCard"
+import WidgetNutritionCard from "./WidgetNutritionCard"
 import WidgetTodayScore from "./WidgetTodayScore"
 import "./Dashboard.css"
 
@@ -90,22 +90,22 @@ export default function Dashboard() {
           (data.profile.data.todayScore || data.profile.data.score)
         }
       />
-      <NutritionCard
+      <WidgetNutritionCard
         className="nutrition-card__calories"
         type="calories"
         value={data.profile && data.profile.data.keyData.calorieCount} 
       />
-      <NutritionCard
+      <WidgetNutritionCard
         className="nutrition-card__proteins"
         type="proteins"
         value={data.profile && data.profile.data.keyData.proteinCount}
       />
-      <NutritionCard
+      <WidgetNutritionCard
         className="nutrition-card__carbs"
         type="carbs"
         value={data.profile && data.profile.data.keyData.carbohydrateCount}
       />
-      <NutritionCard
+      <WidgetNutritionCard
         className="nutrition-card__fats"
         type="fats"
         value={data.profile && data.profile.data.keyData.lipidCount}
