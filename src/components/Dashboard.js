@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import DashboardLoading from "./DashboardLoading";
 import DashboardError from "./DashboardError";
 import NutritionCard from "./NutritionCard";
+import WidgetTodayScore from "./WidgetTodayScore";
 import "./Dashboard.css";
 
 export default function Dashboard() {
@@ -83,12 +84,12 @@ export default function Dashboard() {
       <div className="test x"></div>
       <div className="test z1"></div>
       <div className="test z2"></div>
-      <div className="test z3">
-        {
+      <WidgetTodayScore
+        value={
           data.profile &&
           (data.profile.data.todayScore || data.profile.data.score)
         }
-      </div>
+      />
       <NutritionCard
         className="nutrition-card__calories"
         type="calories"

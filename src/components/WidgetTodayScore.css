@@ -1,0 +1,45 @@
+.widget-today-score {
+  grid-row: 3 / 5;
+  grid-column: 3 / 4;
+  background-color: #F7F7F7;
+  border-radius: 5px;
+  position: relative;
+}
+
+.widget-today-score__label {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #20253A;
+}
+
+.widget-today-score__arc {
+  fill: #FF0000;
+}
+
+.widget-today-score__text {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  padding: 25px;
+}
+
+.widget-today-score__percentage {
+  font-size: 1.25rem;
+  font-weight: 700;
+  fill: #282D30;
+}
+
+.widget-today-score__description {
+  font-size: 0.875rem;
+  line-height: 1.25;
+  font-weight: 500;
+  color: #74798C;
+}
