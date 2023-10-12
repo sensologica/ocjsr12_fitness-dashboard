@@ -35,15 +35,15 @@ export default function NutritionCard({type, value, className}) {
   const thisType = types.find(item => item.type === type)
 
   return (
-    <div className={`nutrition-card ${className}`}>
-      <div className="nutrition-card__flex-child">
-        <img className="nutrition-card__icon" src={thisType.icon} alt="" />
+    <div className={`widget widget-nutrition-card ${className}`}>
+      <div className="widget-nutrition-card__flex-child">
+        <img className="widget-nutrition-card__icon" src={thisType.icon} alt="" />
       </div>
-      <div className="nutrition-card__flex-child">
-        <p className="nutrition-card__value">
+      <div className="widget-nutrition-card__flex-child">
+        <p className="widget-nutrition-card__value">
           {new Intl.NumberFormat("en-US").format(value) + thisType.unit}
         </p>
-        <p className="nutrition-card__label">{thisType.label}</p>
+        <p className="widget-nutrition-card__label">{thisType.label}</p>
       </div>
     </div>
   )

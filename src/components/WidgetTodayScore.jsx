@@ -18,7 +18,7 @@ export default function WidgetTodayScore({value}) {
     .cornerRadius(arcCornerRadius)
 
   return (
-    <div className="widget-today-score">
+    <div className="widget widget-today-score">
       <svg height="100%" viewBox={`0 0 ${viewBoxSize} ${viewBoxSize}`}>
         <g>
           <circle

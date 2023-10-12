@@ -1,7 +1,6 @@
 .widget-today-score {
   grid-row: 3 / 5;
   grid-column: 3 / 4;
-  background-color: #F7F7F7;
   border-radius: 5px;
   position: relative;
 }

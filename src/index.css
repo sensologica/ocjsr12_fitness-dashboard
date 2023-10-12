@@ -61,3 +61,15 @@ html {
 body * {
   font-family: "Roboto Flex", sans-serif;
 }
+
+
+
+
+
+/*------------------------------------*\
+  #GLOBAL
+\*------------------------------------*/
+
+.widget {
+  background-color: #F7F7F7;
+}
