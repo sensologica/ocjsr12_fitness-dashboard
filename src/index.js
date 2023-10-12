@@ -1,11 +1,11 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import Dashboard from './components/Dashboard';
-import "./index.css";
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import Dashboard from './components/Dashboard'
+import "./index.css"
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
   <React.StrictMode>
     <Dashboard />
   </React.StrictMode>
-);
+)

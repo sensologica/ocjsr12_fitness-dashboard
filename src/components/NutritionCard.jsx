@@ -1,8 +1,8 @@
-import iconCalories from "../assets/images/icon_calories.svg";
-import iconProteins from "../assets/images/icon_proteins.svg";
-import iconCarbs from "../assets/images/icon_carbs.svg";
-import iconFats from "../assets/images/icon_fats.svg";
-import "./NutritionCard.css";
+import iconCalories from "../assets/images/icon_calories.svg"
+import iconProteins from "../assets/images/icon_proteins.svg"
+import iconCarbs from "../assets/images/icon_carbs.svg"
+import iconFats from "../assets/images/icon_fats.svg"
+import "./NutritionCard.css"
 
 export default function NutritionCard({type, value, className}) {
   const types = [
@@ -30,9 +30,9 @@ export default function NutritionCard({type, value, className}) {
       "unit": "g",
       "label": "Lipides"
     }
-  ];
+  ]
   
-  const thisType = types.find(item => item.type === type);
+  const thisType = types.find(item => item.type === type)
 
   return (
     <div className={`nutrition-card ${className}`}>
@@ -46,5 +46,5 @@ export default function NutritionCard({type, value, className}) {
         <p className="nutrition-card__label">{thisType.label}</p>
       </div>
     </div>
-  );
+  )
 }

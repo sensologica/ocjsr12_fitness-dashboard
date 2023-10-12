@@ -1,20 +1,20 @@
-import { useState, useEffect } from "react";
-import DashboardLoading from "./DashboardLoading";
-import DashboardError from "./DashboardError";
-import NutritionCard from "./NutritionCard";
-import WidgetTodayScore from "./WidgetTodayScore";
-import "./Dashboard.css";
+import { useState, useEffect } from "react"
+import DashboardLoading from "./DashboardLoading"
+import DashboardError from "./DashboardError"
+import NutritionCard from "./NutritionCard"
+import WidgetTodayScore from "./WidgetTodayScore"
+import "./Dashboard.css"
 
 export default function Dashboard() {
-  const userId = 12;
+  const userId = 12
 
   // I've opted to store data from all 4 endpoints as an object in a single
   // state variable instead of in separate state variables. It felt natural to
   // keep all of the data together because all of it is needed to render the
   // widgets of the dashboard.
-  const [data, setData] = useState({});
-  const [isLoading, setIsLoading] = useState(false);
-  const [isError, setIsError] = useState(false);
+  const [data, setData] = useState({})
+  const [isLoading, setIsLoading] = useState(false)
+  const [isError, setIsError] = useState(false)
 
   // For fetching the data, I've opted for the "all data or no data" approach.
   // This means fetching data from all 4 endpoints at once, in parallel, using
@@ -22,7 +22,7 @@ export default function Dashboard() {
   // and show it to the user ASAP. The tradeoff of this decision is that if one
   // of the endpoints fails, none of the Dashboard Widgets will work.
   useEffect(() => {
-    setIsLoading(true);
+    setIsLoading(true)
 
     async function fetchData() {
       // Note: The order of the values in the resulting Promise.all array is
@@ -37,29 +37,29 @@ export default function Dashboard() {
         // `response.ok` evaluates to true if the HTTP response status codes
         // fall in the range 200-299, which is indicative of success.
         if (!response.ok) {
-          setIsLoading(false);
-          setIsError(true);
-          return null;
+          setIsLoading(false)
+          setIsError(true)
+          return null
         }
 
-        setIsError(false);
-        return response.json();
-      });
+        setIsError(false)
+        return response.json()
+      })
 
-      const results = await Promise.all(endpointData);
+      const results = await Promise.all(endpointData)
       
       setData({
         profile: results[0],
         activity: results[1],
         sessions: results[2],
         performance: results[3]
-      });
+      })
 
-      setIsLoading(false);
+      setIsLoading(false)
     }
 
-    fetchData();
-  }, []);
+    fetchData()
+  }, [])
   // The empty dependency array instructs `useEffect` to only run once (on first
   // component mount).
 
@@ -68,7 +68,7 @@ export default function Dashboard() {
       <div className="dashboard">
         <DashboardLoading />
       </div>
-    );
+    )
   }
 
   if (isError) {
@@ -76,7 +76,7 @@ export default function Dashboard() {
       <div className="dashboard">
         <DashboardError />
       </div>
-    );
+    )
   }
 
   return (
@@ -111,5 +111,5 @@ export default function Dashboard() {
         value={data.profile && data.profile.data.keyData.lipidCount}
       />
     </div>
-  );
+  )
 }
