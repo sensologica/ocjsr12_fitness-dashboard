@@ -1,0 +1,48 @@
+.widget-activity {
+  grid-row: 1 / 3;
+  grid-column: 1 / 4;
+}
+
+.legend-item-0 {
+  margin-right: 24px !important;
+}
+
+.widget-activity__legend-text {
+  color: #74798C;
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-left: 8px;
+}
+
+.widget-activity__tooltip {
+  background-color: #E60000;
+  color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 12px 8px;
+  font-size: 10px;
+  font-weight: 500;
+}
+
+.widget-activity > * {
+  text-align: center;
+}
+
+.recharts-tooltip-cursor {
+  opacity: 40%;
+}
+
+.recharts-cartesian-grid-horizontal > line {
+  stroke: #DEDEDE;
+}
+
+.recharts-cartesian-axis-line {
+  stroke: #DEDEDE;
+}
+
+.recharts-cartesian-axis-tick-value {
+  font-size: 14px;
+  font-weight: 500;
+  fill: #9B9EAC;
+}

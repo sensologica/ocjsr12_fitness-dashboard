@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react"
 import DashboardLoading from "./DashboardLoading"
 import DashboardError from "./DashboardError"
-import WidgetNutritionCard from "./WidgetNutritionCard"
+import WidgetActivity from "./WidgetActivity"
 import WidgetTodayScore from "./WidgetTodayScore"
+import WidgetNutritionCard from "./WidgetNutritionCard"
 import "./Dashboard.css"
 
 export default function Dashboard() {
@@ -81,9 +82,9 @@ export default function Dashboard() {
 
   return (
     <div className="dashboard">
-      <div className="test x"></div>
-      <div className="test z1"></div>
-      <div className="test z2"></div>
+      <WidgetActivity data={data.activity} />
+      <div className="widget z1"></div>
+      <div className="widget z2"></div>
       <WidgetTodayScore
         value={
           data.profile &&
