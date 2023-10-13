@@ -1,0 +1,10 @@
+.widget.widget-sessions {
+  grid-row: 3 / 5;
+  grid-column: 1 / 2;
+  background-color: #FF0000;
+} 
+
+.widget-sessions.widget__label {
+  color: #FFFFFF;
+  opacity: 50%;
+}

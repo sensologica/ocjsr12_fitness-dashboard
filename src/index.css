@@ -78,9 +78,10 @@ body * {
 
 .widget__label {
   position: absolute;
-  top: 16px;
-  left: 20px;
+  top: 0;
+  left: 0;
   font-size: 0.875rem;
   font-weight: 500;
   color: #20253A;
+  margin: 16px 20px;
 }

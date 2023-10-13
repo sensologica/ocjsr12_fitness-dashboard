@@ -2,6 +2,7 @@ import { useState, useEffect } from "react"
 import DashboardLoading from "./DashboardLoading"
 import DashboardError from "./DashboardError"
 import WidgetActivity from "./WidgetActivity"
+import WidgetSessions from "./WidgetSessions"
 import WidgetTodayScore from "./WidgetTodayScore"
 import WidgetNutritionCard from "./WidgetNutritionCard"
 import "./Dashboard.css"
@@ -83,7 +84,7 @@ export default function Dashboard() {
   return (
     <div className="dashboard">
       <WidgetActivity data={data.activity} />
-      <div className="widget z1"></div>
+      <WidgetSessions data={data.performance} />
       <div className="widget z2"></div>
       <WidgetTodayScore
         value={
