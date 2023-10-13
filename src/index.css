@@ -71,5 +71,16 @@ body * {
 \*------------------------------------*/
 
 .widget {
+  position: relative;
   background-color: #F7F7F7;
+  border-radius: 5px;
+}
+
+.widget__label {
+  position: absolute;
+  top: 16px;
+  left: 20px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #20253A;
 }

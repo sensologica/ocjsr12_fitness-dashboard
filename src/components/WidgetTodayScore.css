@@ -1,17 +1,6 @@
 .widget-today-score {
   grid-row: 3 / 5;
   grid-column: 3 / 4;
-  border-radius: 5px;
-  position: relative;
-}
-
-.widget-today-score__label {
-  position: absolute;
-  top: 16px;
-  left: 16px;
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: #20253A;
 }
 
 .widget-today-score__arc {

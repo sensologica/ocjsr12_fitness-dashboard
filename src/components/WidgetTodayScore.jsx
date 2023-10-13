@@ -34,7 +34,7 @@ export default function WidgetTodayScore({value}) {
           />
         </g>
       </svg>
-      <div className="widget-today-score__label">Score</div>
+      <div className="widget__label">Score</div>
       <div className="widget-today-score__text">
         <p className="widget-today-score__percentage">{valueFormatted}</p>
         <p className="widget-today-score__description">de votre objectif</p>
