@@ -8,3 +8,21 @@
   color: #FFFFFF;
   opacity: 50%;
 }
+
+.widget-sessions__tooltip {
+  background-color: #FFFFFF;
+  color: #000000;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 12px 8px;
+  font-size: 10px;
+  font-weight: 500;
+}
+
+.widget-sessions .recharts-cartesian-axis-tick-value {
+  font-size: 14px;
+  font-weight: 500;
+  fill: #FFFFFF;
+  opacity: 50%;
+}
