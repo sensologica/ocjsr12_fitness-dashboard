@@ -23,17 +23,15 @@ function CustomTooltip({active, payload}) {
   }
 }
 
-function CustomCursor(props) {
-  console.log(props)
+function CustomCursor({ points }) {
   return (
     <rect
       className="widget-sessions__cursor"
       fill="#000000"
       opacity={0.1}
+      x={points[0].x}
       height="100%"
-      left="auto"
-      right={0}
-      width={props.points[0].x}
+      width="100%"
     />
   )
 }
@@ -62,6 +60,11 @@ export default function WidgetSessions({data}) {
             left: 0
           }}
         >
+          <Tooltip 
+            // We instruct the Tooltip component to use our custom tooltip.
+            content={<CustomTooltip />}
+            cursor={<CustomCursor />}
+          />
           <YAxis
             dataKey="value"
             hide={true}
@@ -73,22 +76,14 @@ export default function WidgetSessions({data}) {
             interval="preserveStartEnd"
             padding={{ left: 16, right: 16 }}
           />
-          <XAxis
-            xAxisId={1}
-            dataKey="kind"
-            hide={true}
-          />
-
           <defs>
             <linearGradient id="curve-gradient">
               <stop offset="30%" stopColor="#FFFFFF" stopOpacity="0.5" />
               <stop offset="100%" stopColor="#FFFFFF" stopOpacity="1" />
             </linearGradient>
           </defs>
-
           <Line
             dataKey="value"
-            xAxisId={1}
             type="bumpX"
             dot={false}
             activeDot={{ 
@@ -98,12 +93,6 @@ export default function WidgetSessions({data}) {
             }}
             strokeWidth={2.5}
             style={{ stroke: "url(#curve-gradient)" }}
-          />
-          <Tooltip 
-            // We instruct the Tooltip component to use our custom tooltip.
-            content={<CustomTooltip />}
-            cursor={<CustomCursor />}
-            trigger="click"
           />
         </LineChart>
       </ResponsiveContainer>
