@@ -1,0 +1,12 @@
+.widget.widget-performance {
+  grid-row: 3 / 5;
+  grid-column: 2 / 3;
+  background-color: #282D30;
+}
+
+.recharts-polar-angle-axis-tick-value {
+  fill: #FFFFFF;
+  font-size: 12px;
+  font-weight: 500px;
+  text-transform: capitalize;
+}
