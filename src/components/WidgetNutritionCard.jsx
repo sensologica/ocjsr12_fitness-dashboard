@@ -41,7 +41,7 @@ export default function WidgetNutritionCard({type, value, className}) {
       </div>
       <div className="widget-nutrition-card__flex-child">
         <p className="widget-nutrition-card__value">
-          {new Intl.NumberFormat("en-US").format(value) + thisType.unit}
+          {new Intl.NumberFormat("en-US").format(value)}<wbr />{thisType.unit}
         </p>
         <p className="widget-nutrition-card__label">{thisType.label}</p>
       </div>
