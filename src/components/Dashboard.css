@@ -1,5 +1,6 @@
 .dashboard {
-  padding: 24px;
+  padding: 4vw;
+  padding-left: calc(104px + 4vw);
 }
 
 .dashboard-intro {
