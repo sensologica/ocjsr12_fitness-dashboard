@@ -1,5 +1,24 @@
 # ocjsr_p12
 
+## Running the app
+
+First, run the backend API. Navigate to the `api` folder, then run the server:
+
+```bash
+$ cd api
+$ npm start 
+```
+
+The API will be served at port 3000.
+
+Then, in a new terminal window, from the project's root folder, run the frontend:
+
+```bash
+$ npm start
+```
+
+The frontend will run at port 3001 (configured in the `.env` file).
+
 ## Project Setup
 
 ### Setting up the backend API
