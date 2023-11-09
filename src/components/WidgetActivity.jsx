@@ -90,7 +90,7 @@ export default function WidgetActivity({data}) {
             axisLine={false}
             tickLine={false}
             tickMargin={30}
-            domain={["auto", "auto"]}
+            domain={["dataMin - 1", "auto"]}
           />
           {/* 
             We create a second Y-axis with a unique ID and use this ID to link
@@ -105,6 +105,7 @@ export default function WidgetActivity({data}) {
             dataKey="calories"
             yAxisId={1}
             hide={true}
+            domain={["dataMin - 100", "dataMax + 100"]}
           />
           <Legend 
             align="right"
