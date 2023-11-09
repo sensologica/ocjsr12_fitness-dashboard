@@ -6,11 +6,11 @@ import WidgetPerformance from "./WidgetPerformance"
 import WidgetSessions from "./WidgetSessions"
 import WidgetTodayScore from "./WidgetTodayScore"
 import WidgetNutritionCard from "./WidgetNutritionCard"
+import { useLoaderData } from "react-router-dom"
 import "./Dashboard.css"
 
 export default function Dashboard() {
-  const userId = 12
-
+  const userId = useLoaderData()
   // I've opted to store data from all 4 endpoints as an object in a single
   // state variable instead of in separate state variables. It felt natural to
   // keep all of the data together because all of it is needed to render the
@@ -62,7 +62,7 @@ export default function Dashboard() {
     }
 
     fetchData()
-  }, [])
+  }, [userId])
   // The empty dependency array instructs `useEffect` to only run once (on first
   // component mount).
 

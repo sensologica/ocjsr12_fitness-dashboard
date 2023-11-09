@@ -1,0 +1,21 @@
+.user-selector {
+  display: flex;
+  gap: 16px;
+  margin: 48px;
+}
+
+.user-selector-button {
+  display: block;
+  text-decoration: none;
+  color: #424242;
+  background-color: #ECECEC;
+  border: 1px solid #CCCCCC;
+  border-radius: 4px;
+  padding: 8px 12px;
+}
+
+.user-selector-button:hover {
+  color: #808080;
+  background-color: #EFEFEF;
+  border: 1px solid #DDDDDD;
+}
