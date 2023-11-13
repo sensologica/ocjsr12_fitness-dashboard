@@ -4,6 +4,7 @@ import WidgetPerformance from "./WidgetPerformance"
 import WidgetSessions from "./WidgetSessions"
 import WidgetTodayScore from "./WidgetTodayScore"
 import WidgetNutritionCard from "./WidgetNutritionCard"
+import modelData from "../services/modelData"
 import { useLoaderData } from "react-router-dom"
 import "./Dashboard.css"
 
@@ -12,7 +13,9 @@ export default function Dashboard() {
   const userId = useLoaderData()
   
   // Use a custom hook to fetch data based on `userId`.
-  const data = useFetch(userId)
+  const data = useFetch(userId, process.env.REACT_APP_DATA_SOURCE)
+  console.log(data)
+  // modelData(data)
 
   return (
     <div className="dashboard">
