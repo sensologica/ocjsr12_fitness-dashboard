@@ -5,12 +5,6 @@
   * @return {object} - Object containing results of the fetch operation.
   */
 export default async function fetchData(userId, dataSource = "API") {
-  // if (dataSource !== "API" && dataSource!== "MOCK") {
-  //   setIsError(true)
-  //   console.log("Error: Invalid data source. Could not fetch data.")
-  //   return
-  // }
-
   let fetchResult = {
     loading: true,
     error: false,
@@ -32,7 +26,6 @@ export default async function fetchData(userId, dataSource = "API") {
         loading: false,
         error: true
       }
-      return null
     }
 
     return response.json()
@@ -50,6 +43,6 @@ export default async function fetchData(userId, dataSource = "API") {
       performance: results[3]
     }
   }
-  
+
   return fetchResult
 }

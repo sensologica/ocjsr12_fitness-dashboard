@@ -1,21 +1,39 @@
 import useFetch from "../hooks/useFetch"
+import DashboardLoading from "../components/DashboardLoading"
+import DashboardError from "../components/DashboardError"
 import WidgetActivity from "./WidgetActivity"
 import WidgetPerformance from "./WidgetPerformance"
 import WidgetSessions from "./WidgetSessions"
 import WidgetTodayScore from "./WidgetTodayScore"
 import WidgetNutritionCard from "./WidgetNutritionCard"
-import modelData from "../services/modelData"
 import { useLoaderData } from "react-router-dom"
 import "./Dashboard.css"
 
 export default function Dashboard() {
-  // Get `userId` value from URL using React Router.
+  // Get `userId` value from URL using React Router's loader.
   const userId = useLoaderData()
-  
-  // Use a custom hook to fetch data based on `userId`.
-  const data = useFetch(userId, process.env.REACT_APP_DATA_SOURCE)
-  console.log(data)
-  // modelData(data)
+
+  const { 
+    isLoading, 
+    isError, 
+    data 
+  } = useFetch(userId, process.env.REACT_APP_DATA_SOURCE)
+
+  if (isLoading) {
+    return (
+      <div className="dashboard">
+        <DashboardLoading />
+      </div>
+    )
+  }
+
+  if (isError) {
+    return (
+      <div className="dashboard">
+        <DashboardError />
+      </div>
+    )
+  }
 
   return (
     <div className="dashboard">
