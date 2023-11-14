@@ -37,22 +37,11 @@ function CustomCursor({ points }) {
 }
 
 export default function WidgetSessions({data}) {
-  const sessions = data ? data.data.data : null
-  const days = ["L", "M", "M", "J", "V", "S", "D"]
-
-  // Add a `dayOfWeek` property so we can label the ticks of the X-axis with it.
-  const dataFormatted = sessions && sessions.map((element, index) => {
-    return {
-      ...element,
-      dayOfWeek: days[index]
-    }
-  })
-
   return (
     <div className="widget widget-sessions">
       <ResponsiveContainer>
         <LineChart
-          data={dataFormatted}
+          data={data}
           margin={{
             top: 64, 
             right: 0,
@@ -66,8 +55,9 @@ export default function WidgetSessions({data}) {
             cursor={<CustomCursor />}
           />
           <YAxis
-            dataKey="value"
+            dataKey="length"
             hide={true}
+            domain={["dataMin - 10", "dataMax + 10"]}
           />
           <XAxis
             dataKey="dayOfWeek"
@@ -83,8 +73,8 @@ export default function WidgetSessions({data}) {
             </linearGradient>
           </defs>
           <Line
-            dataKey="value"
-            type="bumpX"
+            dataKey="length"
+            type="bump"
             dot={false}
             activeDot={{ 
               stroke: "none",

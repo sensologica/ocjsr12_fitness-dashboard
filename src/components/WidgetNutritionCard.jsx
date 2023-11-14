@@ -25,7 +25,7 @@ export default function WidgetNutritionCard({type, value, className}) {
       "label": "Glucides"
     }, 
     {
-      "type": "fats",
+      "type": "fat",
       "icon": iconFats,
       "unit": "g",
       "label": "Lipides"

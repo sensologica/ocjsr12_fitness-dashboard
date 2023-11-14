@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
 import fetchData from "../services/fetchData"
+import modelData from "../services/modelData"
 
 export default function useFetch(userId, dataSource) {
   const [isLoading, setIsLoading] = useState(false)
@@ -11,7 +12,7 @@ export default function useFetch(userId, dataSource) {
       .then(result => {
         setIsLoading(result.loading)
         setIsError(result.error)
-        setData(result.data)
+        setData(modelData(result.data))
       })
   }, [userId, dataSource])
 

@@ -39,39 +39,34 @@ export default function Dashboard() {
     <div className="dashboard">
       <div className="dashboard-intro">
         <h1>Bonjour <span className="dashboard-intro__user-name">
-          {data.profile && data.profile.data.userInfos.firstName}
+          {data.user && data.user.firstName}
         </span></h1>
         <p>Félicitations ! Vous avez explosé vos objectifs hier 👏</p>
       </div>
       <div className="widgets">
-        <WidgetActivity data={data.activity} />
-        <WidgetSessions data={data.performance} />
+        <WidgetActivity data={data.dailyActivity} />
+        <WidgetSessions data={data.sessionDuration} />
         <WidgetPerformance data={data.performance} />
-        <WidgetTodayScore
-          value={
-            data.profile &&
-            (data.profile.data.todayScore || data.profile.data.score)
-          }
-        />
+        <WidgetTodayScore value={data.dailyScore} />
         <WidgetNutritionCard
           className="widget-nutrition-card__calories"
           type="calories"
-          value={data.profile && data.profile.data.keyData.calorieCount} 
+          value={data.nutrition && data.nutrition.calories} 
         />
         <WidgetNutritionCard
           className="widget-nutrition-card__proteins"
           type="proteins"
-          value={data.profile && data.profile.data.keyData.proteinCount}
+          value={data.nutrition && data.nutrition.protein}
         />
         <WidgetNutritionCard
           className="widget-nutrition-card__carbs"
           type="carbs"
-          value={data.profile && data.profile.data.keyData.carbohydrateCount}
+          value={data.nutrition && data.nutrition.carbs}
         />
         <WidgetNutritionCard
           className="widget-nutrition-card__fats"
-          type="fats"
-          value={data.profile && data.profile.data.keyData.lipidCount}
+          type="fat"
+          value={data.nutrition && data.nutrition.fat}
         />
       </div>
     </div>

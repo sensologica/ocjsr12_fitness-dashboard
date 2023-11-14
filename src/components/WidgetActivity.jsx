@@ -30,7 +30,7 @@ function CustomTooltip({active, payload}) {
 
 export default function WidgetActivity({data}) {
   // We add a `number` property so we can label the ticks of the X-axis with it.
-  const dataFormatted = data && data.data.sessions.map((element, index) => {
+  const dataFormatted = data && data.map((element, index) => {
     return {
       ...element,
       number: index + 1
@@ -65,13 +65,13 @@ export default function WidgetActivity({data}) {
             strokeDasharray="2"
           />
           <Bar
-            dataKey="kilogram"
+            dataKey="weightKgs"
             name="Poids (kg)"
             shape={<Rectangle radius={[100, 100, 0, 0]} />} // Rounds corners.
             fill="#282D30"
           />
           <Bar
-            dataKey="calories"
+            dataKey="caloriesBurnt"
             name="Calories brûlées (kCal)"
             shape={<Rectangle radius={[100, 100, 0, 0]} />} // Rounds corners.
             fill="#E60000"
@@ -83,7 +83,7 @@ export default function WidgetActivity({data}) {
             tickMargin={10}
           />
           <YAxis 
-            dataKey="kilogram"
+            dataKey="weightKgs"
             orientation="right"
             tickCount={3}
             allowDecimals={false}
@@ -102,7 +102,7 @@ export default function WidgetActivity({data}) {
             only the kilograms axis is visible on the final graph.
            */}
           <YAxis
-            dataKey="calories"
+            dataKey="caloriesBurnt"
             yAxisId={1}
             hide={true}
             domain={["dataMin - 100", "dataMax + 100"]}
