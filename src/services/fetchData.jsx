@@ -1,3 +1,5 @@
+import * as mockData from "../data/mockData.js"
+
 /**
   * Fetches data from the backend API or from a mock file.
   * @param {number} userId - The ID of a user whose data we want to fetch.
@@ -12,7 +14,8 @@ export default async function fetchData(userId, dataSource = "API") {
   }
 
   if (dataSource === "API") {
-    // Note: The order of the values in the resulting Promise.all array is
+
+    // The order of the values in the resulting Promise.all array is
     // maintained (the same order as the `fetch()` statements).
     const endpointData = (await Promise.all([
       fetch(`http://localhost:3000/user/${userId}`),
@@ -28,7 +31,6 @@ export default async function fetchData(userId, dataSource = "API") {
           error: true
         }
       }
-
       return response.json()
     })
 
@@ -46,14 +48,65 @@ export default async function fetchData(userId, dataSource = "API") {
     }
 
     return fetchResult
+
   } else if (dataSource === "MOCK") {
-    // TODO: Fetch from MOCK logic.
+
+    const currentUserProfile = mockData.USER_MAIN_DATA
+      .filter(i => i.id === userId || i.userId === userId).shift()
+
+    const currentUserActivity = mockData.USER_ACTIVITY
+      .filter(i => i.id === userId || i.userId === userId).shift()
+
+    const currentUserSessions = mockData.USER_AVERAGE_SESSIONS
+      .filter(i => i.id === userId || i.userId === userId).shift()
+
+    const currentUserPerformance = mockData.USER_PERFORMANCE
+      .filter(i => i.id === userId || i.userId === userId).shift()
+    
+    fetchResult = {
+      loading: false,
+      error: false,
+      data: {
+        activity: {
+          data: {
+            sessions: currentUserActivity.sessions,
+            userId: currentUserActivity.id
+          }
+        },
+        performance: {
+          data: {
+            data: currentUserPerformance.data,
+            kind: currentUserPerformance.kind,
+            userId: currentUserPerformance.id
+          }
+        },
+        profile: {
+          data: {
+            id: currentUserProfile.id,
+            keyData: currentUserProfile.keyData,
+            score: currentUserProfile.score || currentUserProfile.todayScore,
+            userInfos: currentUserProfile.userInfos
+          }
+        },
+        sessions: {
+          data: {
+            sessions: currentUserSessions.sessions,
+            userId: currentUserSessions.id
+          }
+        }
+      }
+    }
+
+    return fetchResult
+
   } else {
+
     fetchResult = {
       loading: false,
       error: true,
       data: {}
     }
+
     return fetchResult
   }
 }

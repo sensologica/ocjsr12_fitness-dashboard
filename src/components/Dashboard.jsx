@@ -6,6 +6,7 @@ import WidgetPerformance from "./WidgetPerformance"
 import WidgetSessions from "./WidgetSessions"
 import WidgetTodayScore from "./WidgetTodayScore"
 import WidgetNutritionCard from "./WidgetNutritionCard"
+import DataSourceToast from "./DataSourceToast"
 import { useLoaderData } from "react-router-dom"
 import "./Dashboard.css"
 
@@ -68,6 +69,7 @@ export default function Dashboard() {
           type="fat"
           value={data.nutrition && data.nutrition.fat}
         />
+        <DataSourceToast dataSource={process.env.REACT_APP_DATA_SOURCE} />
       </div>
     </div>
   )
