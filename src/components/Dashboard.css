@@ -44,3 +44,10 @@
   grid-row: 4 / 5;
   grid-column: 4 / 5;
 }
+
+@media screen and (width > 1200px) {
+  .dashboard {
+    padding: 4vw 7vw;
+    padding-left: calc(104px + 7vw);
+  } 
+}
