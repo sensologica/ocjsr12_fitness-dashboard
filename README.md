@@ -1,8 +1,8 @@
-# ocjsr_p12
+# OpenClassrooms JavaScript React: Project 12 - SportSee
 
 ## Running the app
 
-First, run the backend API. Navigate to the `api` folder, then run the server:
+First, run the backend API. To do so, navigate to the `api` folder, then start the server:
 
 ```bash
 $ cd api
@@ -11,15 +11,66 @@ $ npm start
 
 The API will be served at port 3000.
 
-Then, in a new terminal window, from the project's root folder, run the frontend:
+Then, in a new terminal window, from the project's root folder, start the front-end server:
 
 ```bash
 $ npm start
 ```
 
-The frontend will run at port 3001 (configured in the `.env` file).
+The front-end will run at port 3001 (this is configurable in the `.env` file).
 
-## Project Setup
+## Fetching data
+
+### Choosing where to fetch data from
+
+We can choose to get data from one of the following sources:
+* the backend API
+* a static file mocking the API data
+
+We can switch between these two sources by modifying the value of the `REACT_APP_DATA_SOURCE` environment variable in the `.env` file located in the project's root folder. Set it to `API` to fetch from the API or to `MOCK` to fetch from the mock.
+
+**_IMPORTANT: The front-end server must be restarted in order for the changes to take effect._**
+
+For convenience, the dashboard displays a small toast in the bottom right corner to indicate where the data is currently coming from.
+
+### Fetching from the API
+
+The API provides several endpoints. Each endpoint serves different types of data:
+
+* `http://localhost:3000/user/${userId}`
+* `http://localhost:3000/user/${userId}/activity`
+* `http://localhost:3000/user/${userId}/average-sessions`
+* `http://localhost:3000/user/${userId}/performance`
+
+Data from all 4 endpoints is needed to populate the dashboard widgets. The widgets of the dashboard are listed below:
+
+*   WidgetDailyActivity
+*   WidgetAverageSessions
+*   WidgetPerformance
+*   WidgetDailyScore
+*   WidgetNutritionCard
+
+I've decided to fetch the data in the parent `Dashboard` component and then pass it down to the `Widgets`.
+
+There are several ways to fetch the data from the endpoints, each with its own pros and cons, so we need to measure our goals against the tradeoffs. 
+
+### Option A: Each widget component fetches its own data and then renders it as soon as it’s available
+
+- PRO. Progressive enhancement. Because we fetch data per endpoint/widget, some widgets will be populated with their data quicker than if we were to wait for data for all widgets at once. This means that users get access to some of their data, even while other data is loading. This is a plus for user experience.
+- PRO. Per-widget loading and error states vs for the entire dashboard at once. This relates to better UX. If, for some reason, fetching from one of the endpoints fails, users may still have access to some data. The alternative of fetching all data at once would mean that users would have access to none of their data, in case fetching from any of the endpoints fails.
+- CON. Might go against the requirement of the brief to avoid fetching data from within components. It’s a vague requirement and we don’t know whether the brief considers useEffect as fetching data from within a component or not.
+
+Each Widget component manages its own state.
+
+If the state of one Widget component changes (for example if new data becomes available), only the instances of that Widget will need to re-render. This is not really relevant in our case because our data doesn’t change.
+
+### Option B: Data for all Widgets is fetched at the Dashboard component level, then passed to individual Widget components for rendering
+
+All Widgets share the same state.
+
+If the state of one Widget component changes (for example if new data becomes available), all instances of that Widget will need to re-render. This is not really relevant in our case because our data doesn’t change. And even if it was our case, React is smart about updating the DOM so, theoretically, it would only update the parts of the UI that really changed. I don’t know the performance tradeoffs between Option A and Option B, so I am just guessing what’s best, not using facts.
+
+## Project Setup Log
 
 ### Setting up the backend API
 - Installed Node v12.18.4 using `nvm` version 0.39.4
@@ -107,40 +158,3 @@ $ npm install d3
 * [Data Visualization with D3, JavaScript, React](https://www.youtube.com/watch?v=2LhoCfjm8R4) by freeCodeCamp (video)
 * [D3 and React.js crash course using react hooks](https://www.youtube.com/watch?v=T1RgT0Yh1Lg) (video)
 * [D3 with React](https://ncoughlin.com/posts/d3-react/) by Nick Coughlin (article)
-
-## Fetching data from the API
-
-The API provides several endpoints. Each endpoint serves different types of data:
-
-* `http://localhost:3000/user/${userId}`
-* `http://localhost:3000/user/${userId}/activity`
-* `http://localhost:3000/user/${userId}/average-sessions`
-* `http://localhost:3000/user/${userId}/performance`
-
-Data from all 4 endpoints is needed to populate the dashboard widgets. The widgets of the dashboard are listed below:
-
-*   WidgetDailyActivity
-*   WidgetAverageSessions
-*   WidgetPerformance
-*   WidgetDailyScore
-*   WidgetNutritionCard
-
-I've decided to fetch the data in the parent `Dashboard` component and then pass it down to the `Widgets`.
-
-There are several ways to fetch the data from the endpoints, each with its own pros and cons, so we need to measure our goals against the tradeoffs. 
-
-### Option A: Each widget component fetches its own data and then renders it as soon as it’s available
-
-- PRO. Progressive enhancement. Because we fetch data per endpoint/widget, some widgets will be populated with their data quicker than if we were to wait for data for all widgets at once. This means that users get access to some of their data, even while other data is loading. This is a plus for user experience.
-- PRO. Per-widget loading and error states vs for the entire dashboard at once. This relates to better UX. If, for some reason, fetching from one of the endpoints fails, users may still have access to some data. The alternative of fetching all data at once would mean that users would have access to none of their data, in case fetching from any of the endpoints fails.
-- CON. Might go against the requirement of the brief to avoid fetching data from within components. It’s a vague requirement and we don’t know whether the brief considers useEffect as fetching data from within a component or not.
-
-Each Widget component manages its own state.
-
-If the state of one Widget component changes (for example if new data becomes available), only the instances of that Widget will need to re-render. This is not really relevant in our case because our data doesn’t change.
-
-### Option B: Data for all Widgets is fetched at the Dashboard component level, then passed to individual Widget components for rendering
-
-All Widgets share the same state.
-
-If the state of one Widget component changes (for example if new data becomes available), all instances of that Widget will need to re-render. This is not really relevant in our case because our data doesn’t change. And even if it was our case, React is smart about updating the DOM so, theoretically, it would only update the parts of the UI that really changed. I don’t know the performance tradeoffs between Option A and Option B, so I am just guessing what’s best, not using facts.
