@@ -105,6 +105,9 @@ export default function WidgetActivity({data}) {
             dataKey="caloriesBurnt"
             yAxisId={1}
             hide={true}
+            // It's very important to extend the domain a little bit, otherwise
+            // some bars align with the X-axis and are invisible, even though
+            // data is present.
             domain={["dataMin - 100", "dataMax + 100"]}
           />
           <Legend 
