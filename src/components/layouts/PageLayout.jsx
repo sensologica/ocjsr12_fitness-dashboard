@@ -1,9 +1,9 @@
 import { Outlet } from "react-router-dom"
-import logo from "../assets/images/logo.svg"
-import iconCycling from "../assets/images/icon_cycling.svg"
-import iconMeditation from "../assets/images/icon_meditation.svg"
-import iconSwimming from "../assets/images/icon_swimming.svg"
-import iconWeightlifting from "../assets/images/icon_weightlifting.svg"
+import logo from "../../assets/images/logo.svg"
+import iconCycling from "../../assets/images/icon_cycling.svg"
+import iconMeditation from "../../assets/images/icon_meditation.svg"
+import iconSwimming from "../../assets/images/icon_swimming.svg"
+import iconWeightlifting from "../../assets/images/icon_weightlifting.svg"
 
 export default function PageLayout() {
   return (

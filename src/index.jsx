@@ -7,9 +7,9 @@ import {
   RouterProvider
 } from "react-router-dom"
 import Homepage from "./pages/Homepage/Homepage"
-import PageLayout from "./components/PageLayout"
+import PageLayout from "./components/layouts/PageLayout"
 import Dashboard from "./pages/Dashboard/Dashboard"
-import RoutingError from "./components/RoutingError"
+import RoutingError from "./components/errors/RoutingError"
 import "./index.css"
 
 const router = createBrowserRouter(

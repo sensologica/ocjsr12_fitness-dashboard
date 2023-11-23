@@ -1,7 +1,7 @@
-import iconCalories from "../assets/images/icon_calories.svg"
-import iconProteins from "../assets/images/icon_proteins.svg"
-import iconCarbs from "../assets/images/icon_carbs.svg"
-import iconFats from "../assets/images/icon_fats.svg"
+import iconCalories from "../../../assets/images/icon_calories.svg"
+import iconProteins from "../../../assets/images/icon_proteins.svg"
+import iconCarbs from "../../../assets/images/icon_carbs.svg"
+import iconFats from "../../../assets/images/icon_fats.svg"
 import "./WidgetNutritionCard.css"
 
 export default function WidgetNutritionCard({type, value, className}) {
