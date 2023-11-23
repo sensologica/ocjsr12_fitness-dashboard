@@ -1,7 +1,7 @@
-export default function DashboardError() {
+export default function DashboardError({ errorMessage }) {
   return (
     <div>
-      Error.
+      {errorMessage}
     </div>
   )
 }
