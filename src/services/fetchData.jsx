@@ -7,6 +7,8 @@ import * as mockData from "../data/mockData.js"
   * @return {object} - Object containing results of the fetch operation.
   */
 export default async function fetchData(userId, dataSource = "API") {
+  const apiBaseUrl = process.env.REACT_APP_API_BASE_URL
+
   let fetchResult = {
     loading: true,
     error: false,
@@ -18,10 +20,10 @@ export default async function fetchData(userId, dataSource = "API") {
     // The order of the values in the resulting Promise.all array is
     // maintained (the same order as the `fetch()` statements).
     const endpointData = (await Promise.all([
-      fetch(`http://localhost:3000/user/${userId}`),
-      fetch(`http://localhost:3000/user/${userId}/activity`),
-      fetch(`http://localhost:3000/user/${userId}/average-sessions`),
-      fetch(`http://localhost:3000/user/${userId}/performance`)
+      fetch(`${apiBaseUrl}/user/${userId}`),
+      fetch(`${apiBaseUrl}/user/${userId}/activity`),
+      fetch(`${apiBaseUrl}/user/${userId}/average-sessions`),
+      fetch(`${apiBaseUrl}/user/${userId}/performance`)
     ])).map(response => {
       // `response.ok` evaluates to true if the HTTP response status codes
       // fall in the range 200-299, which is indicative of success.
