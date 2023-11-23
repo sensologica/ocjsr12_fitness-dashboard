@@ -6,7 +6,7 @@ import {
   Route,
   RouterProvider
 } from "react-router-dom"
-import UserSelector from "./components/UserSelector"
+import Homepage from "./pages/Homepage/Homepage"
 import PageLayout from "./components/PageLayout"
 import Dashboard from "./components/Dashboard"
 import RoutingError from "./components/RoutingError"
@@ -17,7 +17,7 @@ const router = createBrowserRouter(
     <>
       <Route 
         path="/"
-        element={<UserSelector />}
+        element={<Homepage />}
         errorElement={<RoutingError />}
       />
       <Route element={<PageLayout />}>
