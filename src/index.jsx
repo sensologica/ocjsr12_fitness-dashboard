@@ -8,7 +8,7 @@ import {
 } from "react-router-dom"
 import Homepage from "./pages/Homepage/Homepage"
 import PageLayout from "./components/PageLayout"
-import Dashboard from "./components/Dashboard"
+import Dashboard from "./pages/Dashboard/Dashboard"
 import RoutingError from "./components/RoutingError"
 import "./index.css"
 
